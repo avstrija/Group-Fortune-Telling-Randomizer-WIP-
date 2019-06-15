@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Righteous|Montserrat|Indie+Flower&display=swap" rel="stylesheet">
+    <title>Tarot Randomizer</title>
+</head>
+    <style>
+        html {
+            overflow:scroll;
+            font-family: 'Montserrat', sans-serif;
+        }
+        body {
+            display: flex;
+            overflow: scroll;
+            background-image:radial-gradient(purple,grey, white);
+            flex-direction: column;
+        }
+        .screen {
+            padding-top:5vh;
+            display: inline-flex;
+            height:100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .intro-screen {
+            padding-top:5vh;
+            display: inline-flex;
+            height:100vh;
+            background-image: url('https://static.parade.com/wp-content/uploads/2019/02/tarot-cards-FTR.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .content {
+            margin:0 auto;
+        }
+        .intro-img {
+            height: 70vh;
+            background-color:azure;
+            line-height: 70vh;
+            text-align:center;
+            width:20vw;
+        }
+        #left-img {
+            float:left;
+            
+        }
+        #right-img {
+            float:right;
+        }
+        #circle {
+            display:table;
+            background-image:linear-gradient(blue,grey);
+            border-radius: 50%;
+            width: 70vh;
+            height: 70vh; 
+            margin:0 auto;
+        }
+        #circle > h1{
+            display:table-cell;
+            vertical-align:middle;
+            text-align:center;
+        }
+        #list-of-students {
+            width: 15em;
+            height:30em;
+            margin-left:20vw;
+            margin-right:10vw;
+            }
+        .student {
+            float: left;
+            border: 1px;
+            width:8vw;
+            margin-left:10px;
+            margin-bottom: 7px;
+            padding:10px 13px;
+            background-color:white;
+            font-size: 18pt;
+            border-radius: 2em;
+            text-align: center;
+        }
+        /* #number-of-groups {
+            float: right;
+            } */
+        .row {
+            padding: 1vh;
+            text-align: center;
+            font-size:4.7vh;
+            font-family: 'Roboto', sans-serif;
+        }
+        button {
+            outline: none;
+            height: 7vw;
+            width: 7vw;
+            border-radius:50%;
+            margin-right: 1vh;
+            font-size:4vh;
+            font-family: 'Roboto', sans-serif;
+        }
+        .card {
+            float:left;
+            height:25vh;
+            width:15vw;
+            margin:10px;
+            font-size:8pt;
+            background-image:linear-gradient(purple,lightblue);
+        }
+    </style>
+    <body>
+        <div class="intro-screen">
+            <div id="left-img" class="intro-img">some image</div>
+            <div id=circle>
+                <h1>Know Your Future Groups</h1>
+            </div>
+            <div id="right-img" class="intro-img">some image</div>
+        </div>
+        <div class="screen">
+        <div id="list-of-students">
+                <div class="student">Jeff </div>
+                <div class="student">Hayes</div>
+                <div class="student">Kyle </div>
+                <div class="student">Dasha</div>
+                <div class="student">Clarke</div>
+                <div class="student">Stan </div>
+                <div class="student">Scott</div>
+                <div class="student">Lilith</div>
+                <div class="student">TJ    </div>
+                <div class="student">Taylor</div>
+                <div class="student">Myles </div>
+                <div class="student">Kat   </div>
+                <div class="student">Hank  </div>
+        </div>
+        <div id="number-of-groups">
+            <div class="row">
+                <p>How many groups?</p>
+            </div>
+            <div class="row">
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+            </div>
+            <div class="row">
+                <button>5</button>
+                <button>6</button>
+            </div>
+            <div class="row">
+                <button>7</button>
+            </div>
+        </div>
+    </div>
+    <div class="screen">
+            <div class="content">
+                <section class="row">       
+                    <div class="card">
+                        <p>content for card one</p>
+                    </div><!-- /card-one -->
+         
+                    <div class="card">
+                        <p>content for card two</p>
+                    </div><!-- /card-two -->
+         
+                    <div class="card">
+                          <p>content for card three</p>
+                    </div><!-- /card-three -->
+         
+                    <div class="card">
+                           <p>content for card four</p>
+                    </div><!-- /card-four -->
+            </section>
+            <section class="row">       
+                    <div class="card">
+                        <p>content for card one</p>
+                    </div><!-- /card-one -->
+         
+                    <div class="card">
+                        <p>content for card two</p>
+                    </div><!-- /card-two -->
+         
+                    <div class="card">
+                          <p>content for card three</p>
+                    </div><!-- /card-three -->
+         
+                    <div class="card">
+                           <p>content for card four</p>
+                    </div><!-- /card-four -->
+            </section>
+            <section class="row">       
+                    <div class="card">
+                        <p>content for card one</p>
+                    </div><!-- /card-one -->
+         
+                    <div class="card">
+                        <p>content for card two</p>
+                    </div><!-- /card-two -->
+         
+                    <div class="card">
+                          <p>content for card three</p>
+                    </div><!-- /card-three -->
+         
+                    <div class="card">
+                           <p>content for card four</p>
+                    </div><!-- /card-four -->
+            </section>
+        </div>
+        </div>
+    </body>
+    <script>
+        
+    </script>
+</html>
