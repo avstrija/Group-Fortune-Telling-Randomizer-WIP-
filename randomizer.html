@@ -14,27 +14,20 @@
         body {
             display: flex;
             overflow: scroll;
-            background-image:radial-gradient(purple,grey, white);
             flex-direction: column;
-        }
-        .screen {
-            padding-top:5vh;
-            display: inline-flex;
-            height:100vh;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        .intro-screen {
-            padding-top:5vh;
-            display: inline-flex;
-            height:100vh;
             background-image: url('https://static.parade.com/wp-content/uploads/2019/02/tarot-cards-FTR.jpg');
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+            margin:0;
+        }
+        .screen {
+            padding-top:5vh;
+            display: inline-flex;
+            height:100vh;
+            margin:0;
+            background-color:rgba(0,0,0,0.87);
         }
         .content {
             margin:0 auto;
@@ -84,9 +77,6 @@
             border-radius: 2em;
             text-align: center;
         }
-        /* #number-of-groups {
-            float: right;
-            } */
         .row {
             padding: 1vh;
             text-align: center;
@@ -102,6 +92,9 @@
             font-size:4vh;
             font-family: 'Roboto', sans-serif;
         }
+        button:hover {
+            background-color:azure;
+        }
         .card {
             float:left;
             height:25vh;
@@ -110,9 +103,22 @@
             font-size:8pt;
             background-image:linear-gradient(purple,lightblue);
         }
+        .close {
+            height: 1.5em;
+            width:1.5em;
+            float: right;
+            font-size:10pt;
+            text-align:right;
+            background: #ffffff;
+            border:none;
+            color: black;
+            border-radius: 3px;
+            position: relative;
+            z-index: 3;
+        }
     </style>
     <body>
-        <div class="intro-screen">
+        <div class="screen">
             <div id="left-img" class="intro-img">some image</div>
             <div id=circle>
                 <h1>Know Your Future Groups</h1>
@@ -121,23 +127,23 @@
         </div>
         <div class="screen">
         <div id="list-of-students">
-                <div class="student">Jeff </div>
-                <div class="student">Hayes</div>
-                <div class="student">Kyle </div>
-                <div class="student">Dasha</div>
-                <div class="student">Clarke</div>
-                <div class="student">Stan </div>
-                <div class="student">Scott</div>
-                <div class="student">Lilith</div>
-                <div class="student">TJ    </div>
-                <div class="student">Taylor</div>
-                <div class="student">Myles </div>
-                <div class="student">Kat   </div>
-                <div class="student">Hank  </div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Jeff </div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Hayes</div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Kyle </div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Dasha</div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Clarke</div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Stan </div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Scott</div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Lilith</div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button>TJ    </div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Taylor</div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Myles </div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Kat   </div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Hank  </div>
         </div>
         <div id="number-of-groups">
             <div class="row">
-                <p>How many groups?</p>
+                <p style="color:white;border:1px;">How many groups?</p>
             </div>
             <div class="row">
                 <button>2</button>
@@ -210,6 +216,10 @@
         </div>
     </body>
     <script>
-        
+        function delete_student(eventvar){
+            console.log(eventvar.target);
+            console.log(eventvar.target.parentNode);
+            eventvar.target.parentNode.parentNode.removeChild(eventvar.target.parentNode);
+        }
     </script>
 </html>
