@@ -14,6 +14,8 @@
         body {
             display: flex;
             overflow: scroll;
+            max-width: 100%;
+            overflow-x: hidden;
             flex-direction: column;
             background-image: url('https://static.parade.com/wp-content/uploads/2019/02/tarot-cards-FTR.jpg');
             background-attachment: fixed;
@@ -30,35 +32,56 @@
             background-color:rgba(0,0,0,0.87);
         }
         .content {
-            margin:0 auto;
+            margin:8vh auto;
         }
-        .intro-img {
-            height: 70vh;
-            background-color:azure;
-            line-height: 70vh;
-            text-align:center;
-            width:20vw;
+        .circles {
+            animation: spin1 60s infinite linear;
+            -webkit-animation: spin1 60s infinite linear;
         }
         #left-img {
             float:left;
-            
+            margin-left:-30px;
+            margin-top:4vh;
+            margin-bottom:1vh;
+            width:550px;
+            min-width:550px;
+            height:auto;
+            min-height:400px;
+            opacity:0.6;
+            animation-name: dissolve;
+            animation-duration: 12000ms;
+            animation-fill-mode: forwards;            
         }
+     @keyframes dissolve{
+            0%{
+                opacity: 0;
+            }
+            50%{
+                opacity: 0.5;
+            }
+            100%{
+                opacity: 1;
+            }
+    }
         #right-img {
             float:right;
+            height:85%;
+            width: auto;
+            margin-top: -40vh;
+            margin-right:-15vw;
+            margin-left:-7vw;
+            opacity:0.7;
+            -webkit-filter:  drop-shadow(2px 2px 5px rgb(157, 158, 223));
+            filter: drop-shadow(2px 2px 6px rgb(89, 89, 231));
+            animation: spin1 150s infinite linear;
+            -webkit-animation: spin1 150s infinite linear;
         }
-        #circle {
-            /* display:table-cell; */
+        #central-circle {
             background-image:linear-gradient(blue,grey);
             border-radius: 50%;
             width: 70vh;
             height: 70vh; 
             margin:0 auto;
-            -moz-transform:rotate(320deg);
-            -webkit-transform:rotate(320deg);
-            -o-transform:rotate(320deg);
-            -ms-transform:rotate(320deg);
-            animation: spin1 60s infinite linear;
-            -webkit-animation: spin1 60s infinite linear;
         }
         @keyframes spin1 {
             0% {
@@ -88,13 +111,16 @@
             -ms-transform:rotate(680deg); 
         }
         }
+        #sigil {
+            width: 82vh;
+            margin:0;
+        }
         .content > h1{
-            /* position: absolute; */
             vertical-align:middle;
             text-align:center;
             margin:-55%;
             color: white;
-            opacity:0.5;
+            opacity:0.55;
             position:relative;
             font-size:4.7vh;
             font-family: 'Spectral SC', serif;
@@ -162,17 +188,17 @@
     </style>
     <body>
         <div class="screen">
-            <div id="left-img" class="intro-img">some image</div>
+            <img id="left-img" src="https://png2.kisspng.com/sh/60301791d3723193f82050cb3276424d/L0KzQYm3V8EyN6p2R91yc4Pzfri0lPhmNaNqedZybnewf7e0iPFvbKQyiNN1bXn2hMPCTfF0fKN0hNHweT3necfwjvF1cZCyiNN1bT31dbLrif5oNWZnTKgDY0K8RIPpVvMzNmgAT6IEOEO8QYa6UcM2OGE6T6QCM0OxgLBu/kisspng-the-reading-of-hands-palmistry-astrology-divinatio-palm-reading-5b468c2942b6c2.7970983915313500572733.png"></img>
             <div class="content">
-                <div id=circle>
-                    <!-- <h1>Know Your Future Groups</h1> -->
-                    <img style="margin:0 auto;" src="https://vignette.wikia.nocookie.net/parapedia/images/2/25/Occult_diagram.gif/revision/latest?cb=20120209165756'"></img>
+                <div class="circles" id="central-circle">
+                    <img id="sigil" src="https://vignette.wikia.nocookie.net/parapedia/images/2/25/Occult_diagram.gif/revision/latest?cb=20120209165756'"></img>
                 </div>
                 <h1>know your future groups</h1>
             </div>
-            <div id="right-img" class="intro-img">some image</div>
+            <img id="right-img" class="circles" src="https://i.ya-webdesign.com/images/occult-drawing-2.gif"></img>
         </div>
         <div class="screen">
+                <button id="add" class="student" style="height:4vw;" onclick="add_student()">Add</button>
         <div id="list-of-students">
                 <div class="student"><button onclick="delete_student(event)" class="close">x</button>Jeff </div>
                 <div class="student"><button onclick="delete_student(event)" class="close">x</button>Hayes</div>
@@ -187,7 +213,7 @@
                 <div class="student"><button onclick="delete_student(event)" class="close">x</button>Myles </div>
                 <div class="student"><button onclick="delete_student(event)" class="close">x</button>Kat   </div>
                 <div class="student"><button onclick="delete_student(event)" class="close">x</button>Hank  </div>
-                <button id="add" class="student" style="height:4vw;" onclick="add_student()">Add</button>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Chris  </div>
         </div>
         <div id="number-of-groups">
             <div class="row">
