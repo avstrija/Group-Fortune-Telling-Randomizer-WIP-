@@ -10,10 +10,10 @@
         html {
             overflow:scroll;
             font-family: 'Montserrat', sans-serif;
+            overscroll-behavior: none;
         }
         body {
             display: flex;
-            overflow: scroll;
             max-width: 100%;
             overflow-x: hidden;
             flex-direction: column;
@@ -27,8 +27,7 @@
         .screen {
             padding-top:5vh;
             display: inline-flex;
-            height:100vh;
-            margin:0;
+            height:101vh;
             background-color:rgba(0,0,0,0.87);
         }
         .content {
@@ -40,14 +39,8 @@
         }
         #left-img {
             float:left;
-            margin-left:-30px;
-            margin-top:4vh;
-            margin-bottom:1vh;
-            width:550px;
-            min-width:550px;
-            height:auto;
-            min-height:400px;
-            opacity:0.6;
+            margin-left:-1vw;
+            height:650px;
             animation-name: dissolve;
             animation-duration: 12000ms;
             animation-fill-mode: forwards;            
@@ -133,21 +126,28 @@
             }
         .student {
             float: left;
-            border: 1px;
-            width:8vw;
+            color: white;
+            border : 2px solid white;
+            width:12vw;
+            height:3vh;
+            line-height:3vh;
+            min-width:120px;
             margin-left:10px;
             margin-bottom: 7px;
             padding:10px 13px;
-            background-color:white;
             font-size: 18pt;
             border-radius: 2em;
             text-align: center;
+            background-color:rgba(0,0,0,0.3);
         }
         .row {
             padding: 1vh;
             text-align: center;
             font-size:4.7vh;
             font-family: 'Roboto', sans-serif;
+        }
+        #number-of-groups {
+            padding-top: 10%;
         }
         button {
             outline: none;
@@ -157,9 +157,11 @@
             margin-right: 1vh;
             font-size:4vh;
             font-family: 'Roboto', sans-serif;
+            background: rgba(0,0,0,0);
+            color: white;
         }
         button:hover {
-            background-color:azure;
+            color:purple;
         }
         button:active {
             background-color:rgb(124, 106, 124);
@@ -178,9 +180,9 @@
             float: right;
             font-size:10pt;
             text-align:right;
-            background: #ffffff;
+            background: rgba(0,0,0,0);
             border:none;
-            color: black;
+            color: white;
             border-radius: 3px;
             position: relative;
             z-index: 3;
@@ -198,7 +200,7 @@
             <img id="right-img" class="circles" src="https://i.ya-webdesign.com/images/occult-drawing-2.gif"></img>
         </div>
         <div class="screen">
-                <button id="add" class="student" style="height:4vw;" onclick="add_student()">Add</button>
+                <button id="add" class="student" style="height:5.7vh;" onclick="add_student()">Add</button>
         <div id="list-of-students">
                 <div class="student"><button onclick="delete_student(event)" class="close">x</button>Jeff </div>
                 <div class="student"><button onclick="delete_student(event)" class="close">x</button>Hayes</div>
