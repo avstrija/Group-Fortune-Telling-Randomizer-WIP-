@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Righteous|Montserrat|Indie+Flower|Spectral+SC&display=swap" rel="stylesheet">
+    <html lang="en"></html>
     <title>Tarot Randomizer</title>
 </head>
     <style>
@@ -105,7 +106,7 @@
         }
         }
         #sigil {
-            width: 82vh;
+            width: 69vh;
             margin:0;
         }
         .content > h1{
@@ -222,16 +223,16 @@
                 <p style="color:white;border:1px;">How many groups?</p>
             </div>
             <div class="row">
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
+                <button onclick="arrange_cards(2)">2</button>
+                <button onclick="arrange_cards(3)">3</button>
+                <button onclick="arrange_cards(4)">4</button>
             </div>
             <div class="row">
-                <button>5</button>
-                <button>6</button>
+                <button onclick="arrange_cards(5)">5</button>
+                <button onclick="arrange_cards(6)">6</button>
             </div>
             <div class="row">
-                <button>7</button>
+                <button onclick="arrange_cards(7)">7</button>
             </div>
         </div>
     </div>
@@ -293,9 +294,37 @@
     </body>
     <script>
         function delete_student(eventvar){
+            console.log("In delete student function")
             console.log(eventvar.target);
             console.log(eventvar.target.parentNode);
             eventvar.target.parentNode.parentNode.removeChild(eventvar.target.parentNode);
+        }
+        var counter = 0;
+        function add_student(){
+            var person = prompt("please enter a name", "name");
+            //creates the new student div
+            var newStudent = document.createElement('div');
+            newStudent.textContent = person;
+            newStudent.className = 'student';
+            newStudent.id = counter;
+
+            var list = document.getElementById('list-of-students')
+            list.appendChild(newStudent);
+
+            //I was quite sure this would add a button!!
+            var newButton = document.createElement('button');
+            newButton.className = "close";
+            newButton.innerHTML = "x";
+            newButton.onclick = function(){delete_student(event)};
+            var student = document.getElementById(counter);
+            student.appendChild(newButton);
+            counter = counter + 1;
+        }
+
+        function arrange_cards(divisions){
+            var count = document.getElementById('list-of-students').childElementCount;
+            console.log(count);
+            console.log(divisions);
         }
     </script>
 </html>
