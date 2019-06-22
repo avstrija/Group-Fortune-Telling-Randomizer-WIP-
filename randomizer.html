@@ -126,7 +126,7 @@
             text-align:center;
             margin:-55%;
             color: white;
-            opacity:0.55;
+            opacity:0.75;
             position:relative;
             font-size:4.7vh;
             font-family: 'Spectral SC', serif;
@@ -195,21 +195,44 @@
             text-align:right;
             background: rgba(0,0,0,0);
             border:none;
-            color: white;
+            color: rgb(255, 255, 255);
             border-radius: 3px;
             position: relative;
             z-index: 3;
         }
+        .enter{
+            border-radius: initial;
+            position: absolute;
+            margin-left: 150px;
+            margin-top: 320px;
+            z-index: 1000;
+            width: 250px;
+            height: 70px;
+            border-color: rgba(255, 217, 1, 0.767);
+            font-size: 25px;
+            border-radius: 10px;
+            border-style: double;
+            border-width: 10px;
+
+
+        }
     </style>
     <body>
+            
         <div class="screen">
+                
             <img id="left-img" src="https://png2.kisspng.com/sh/60301791d3723193f82050cb3276424d/L0KzQYm3V8EyN6p2R91yc4Pzfri0lPhmNaNqedZybnewf7e0iPFvbKQyiNN1bXn2hMPCTfF0fKN0hNHweT3necfwjvF1cZCyiNN1bT31dbLrif5oNWZnTKgDY0K8RIPpVvMzNmgAT6IEOEO8QYa6UcM2OGE6T6QCM0OxgLBu/kisspng-the-reading-of-hands-palmistry-astrology-divinatio-palm-reading-5b468c2942b6c2.7970983915313500572733.png"></img>
             <div class="content">
                 <div class="circles" id="central-circle">
                     <img id="sigil" src="https://vignette.wikia.nocookie.net/parapedia/images/2/25/Occult_diagram.gif/revision/latest?cb=20120209165756'"></img>
                 </div>
-                <h1>know your future groups</h1>
+                <h1 class = "title">know your future groups</h1>
+                <button class = "enter" onclick="scrollWin()">Click to Enter</button>
+               
+                
+                 
             </div>
+            
             <img id="right-img" class="circles" src="https://i.ya-webdesign.com/images/occult-drawing-2.gif"></img>
         </div>
         <div class="screen">
@@ -305,6 +328,21 @@
         </div>
     </body>
     <script>
+
+        var c = 1;
+        
+        function scrollWin() {
+        var interval = setInterval(function() {
+        window.scrollBy(0, 20);
+        c++
+        if (c > 40){
+            clearInterval(interval);
+            c = 0;
+        }
+        }, 40);
+
+        }
+
         function delete_student(eventvar){
             console.log("In delete student function")
             console.log(eventvar.target);
