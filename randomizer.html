@@ -40,11 +40,17 @@
         }
         #left-img {
             float:left;
-            margin-left:-1vw;
-            height:650px;
+            margin-left:-30px;
+            margin-top:4vh;
+            margin-bottom:1vh;
+            width:550px;
+            min-width:550px;
+            height:auto;
+            min-height:400px;
+            opacity:0.6;
             animation-name: dissolve;
             animation-duration: 12000ms;
-            animation-fill-mode: forwards;            
+            animation-fill-mode: forwards;          
         }
      @keyframes dissolve{
             0%{
@@ -71,11 +77,16 @@
             -webkit-animation: spin1 150s infinite linear;
         }
         #central-circle {
-            background-image:linear-gradient(blue,grey);
+            background-image: url("https://www.seekpng.com/png/detail/1-12461_half-moon-half-moon-png.png");
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-position: center;
+            box-shadow:-5px 2px 68px 22px rgba(255,213,0,0.75);
             border-radius: 50%;
             width: 70vh;
             height: 70vh; 
             margin:0 auto;
+            background-position: center;
         }
         @keyframes spin1 {
             0% {
@@ -106,8 +117,9 @@
         }
         }
         #sigil {
-            width: 69vh;
+            width: 82vh;
             margin:0;
+            background: transparent;
         }
         .content > h1{
             vertical-align:middle;
