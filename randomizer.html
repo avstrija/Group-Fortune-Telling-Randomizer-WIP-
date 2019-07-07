@@ -35,16 +35,16 @@
             margin:8vh auto;
         }
         .circles {
-            animation: spin1 60s infinite linear;
-            -webkit-animation: spin1 60s infinite linear;
+            animation: spin1 80s infinite linear;
+            -webkit-animation: spin1 80s infinite linear;
         }
         #left-img {
             float:left;
             margin-left:-30px;
             margin-top:4vh;
             margin-bottom:1vh;
-            width:550px;
-            min-width:550px;
+            width:500px;
+            min-width:500px;
             height:auto;
             min-height:400px;
             opacity:0.6;
@@ -77,17 +77,19 @@
             -webkit-animation: spin1 150s infinite linear;
         }
         #central-circle {
-            background-image: url("https://www.seekpng.com/png/detail/1-12461_half-moon-half-moon-png.png");
-            background-color: transparent;
+            background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/27ea359f-4142-4716-af8a-6308370f0c7e/d7sx9r5-e4fb9a86-a923-4701-b8bd-215588cbe508.png/v1/fill/w_894,h_894,strp/full_blue_moon__png_by_annamae22_d7sx9r5-pre.png");
+            /* background-color: transparent; */
+            opacity:0.6;
             background-repeat: no-repeat;
             background-position: center;
-            box-shadow:-5px 2px 68px 22px rgba(255,213,0,0.75);
+            box-shadow:-5px 2px 68px 22px rgba(255,213,0,0.3);
             border-radius: 50%;
             width: 70vh;
             height: 70vh; 
             margin:0 auto;
             background-position: center;
         }
+
         @keyframes spin1 {
             0% {
             -moz-transform:rotate(320deg);
@@ -119,26 +121,29 @@
         #sigil {
             width: 82vh;
             margin:0;
-            background: transparent;
+            /* opacity:1; */
+            border: 1px;
         }
         .content > h1{
             vertical-align:middle;
             text-align:center;
             margin:-55%;
-            color: white;
-            opacity:0.75;
+            color: rgb(229, 243, 191);
+            /* opacity:0.75; */
+            text-shadow: 4px 2px rgba(255,213,0,0.75);
             position:relative;
             font-size:4.7vh;
             font-family: 'Spectral SC', serif;
         }
         #list-of-students {
-            width: 15em;
-            height:30em;
-            margin-left:20vw;
+            display:flex;
+            flex-wrap:wrap;
+            width: 30em;
+            height:90%;
+            /* margin-left:20vw; */
             margin-right:10vw;
             }
         .student, .student-button {
-            float: left;
             color: white;
             border : 2px solid white;
             width:12vw;
@@ -152,6 +157,12 @@
             border-radius: 2em;
             text-align: center;
             background-color:rgba(0,0,0,0.3);
+        }
+
+        .student > p {
+            float:left;
+            margin-top: 0;
+            margin-left:5%;
         }
         .row {
             padding: 1vh;
@@ -174,7 +185,8 @@
             color: white;
         }
         button:hover {
-            color:purple;
+            color:darkgrey;
+            background-color:rgba(255,213,0,0.2);
         }
         button:active {
             background-color:rgb(124, 106, 124);
@@ -221,16 +233,13 @@
             
         <div class="screen">
                 
-            <img id="left-img" src="https://png2.kisspng.com/sh/60301791d3723193f82050cb3276424d/L0KzQYm3V8EyN6p2R91yc4Pzfri0lPhmNaNqedZybnewf7e0iPFvbKQyiNN1bXn2hMPCTfF0fKN0hNHweT3necfwjvF1cZCyiNN1bT31dbLrif5oNWZnTKgDY0K8RIPpVvMzNmgAT6IEOEO8QYa6UcM2OGE6T6QCM0OxgLBu/kisspng-the-reading-of-hands-palmistry-astrology-divinatio-palm-reading-5b468c2942b6c2.7970983915313500572733.png"></img>
+            <img id="left-img" src="https://png2.kisspng.com/sh/dd63382f97877ba30ce012473307400b/L0KzQYm3V8EyN6p2R91yc4Pzfri0lPhmNaNqedZybnewf7e0iPFvbKQyiNN1bXn2hMPCTfF0fKN0hNHweT3necfwjvF1cZCyiNN1bT31dbLrif5oNWZnTKgDY0K8RIPpVvMzNmgAT6IEOEO8QYa6UcM2OGE6T6QCM0OxgLBu/kisspng-the-reading-of-hands-palmistry-astrology-divinatio-palm-reading-5b468c2942b6c2.7970983915313500572733.png"></img>
             <div class="content">
                 <div class="circles" id="central-circle">
                     <img id="sigil" src="https://vignette.wikia.nocookie.net/parapedia/images/2/25/Occult_diagram.gif/revision/latest?cb=20120209165756'"></img>
                 </div>
                 <h1 class = "title">know your future groups</h1>
                 <button class = "enter" onclick="scrollWin()">Click to Enter</button>
-               
-                
-                 
             </div>
             
             <img id="right-img" class="circles" src="https://i.ya-webdesign.com/images/occult-drawing-2.gif"></img>
@@ -335,7 +344,7 @@
         var interval = setInterval(function() {
         window.scrollBy(0, 20);
         c++
-        if (c > 40){
+        if (c > 45){
             clearInterval(interval);
             c = 0;
         }
@@ -372,23 +381,62 @@
         }
 
         function arrange_cards(divisions){
-            var count = document.getElementById('list-of-students').childElementCount;
+            scrollWin();
+            // var count = document.getElementById('list-of-students').childElementCount;
             var students = document.querySelectorAll(".student > p"),
                 names = [];
             for (var i = 0; i < students.length; i++) {
                 names.push(students[i].textContent);
             }
             console.log(names)
-            
-            for (var x = 0; x < names.Length - 1; x++) {
-                var j = (Math.Random * names.Length)+x;
+
+            //this loop shuffles the array
+            for (var x = 0; x < names.length - 1; x++) {
+                console.log("i'm here")
+                var j = Math.floor((Math.random() * names.length));
                 console.log(j)
                 var temp = names[x];
                 console.log(temp)
                 names[x] = names[j];
                 names[j] = temp;
             }
-            console.log(names);
+            console.log(names)
+
+            //defining the number of students in groups
+            if (divisions <= names.length / 2)
+            {
+                var peopleInShortGroup = Math.floor(names.length / divisions);
+                var peopleInLongGroup = peopleInShortGroup + 1;
+                console.log(peopleInShortGroup)
+                console.log(peopleInLongGroup)
+                var longGroups = names.length % divisions;
+                var shortGroups = divisions - longGroups;
+                var groupNumberAndIndex = [1,0];
+
+                printGroups(names, groupNumberAndIndex, longGroups, peopleInLongGroup);
+                printGroups(names, groupNumberAndIndex, shortGroups, peopleInShortGroup);
+            }
+            else
+            {
+                console.log("Sorry, that's too many groups for this session." +
+                	"\nSome people will have to work alone." +
+                    "\nChoose a different number.");
+            }
+        }
+
+        function printGroups(items, groupNumberAndIndex, numberOfGroups, peopleInGroup) {
+            while (numberOfGroups > 0)
+            {
+                console.log("Group", groupNumberAndIndex[0])
+                for (var i = groupNumberAndIndex[1]; i < groupNumberAndIndex[1] + peopleInGroup; ++i)
+                {
+                    console.log(items[i] + " ")
+                }
+                groupNumberAndIndex[1] += peopleInGroup;
+                ++groupNumberAndIndex[0];
+                --numberOfGroups;
+            }
+            return groupNumberAndIndex;
         }
     </script>
 </html>
