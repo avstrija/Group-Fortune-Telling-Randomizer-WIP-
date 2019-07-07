@@ -12,24 +12,24 @@
             overflow:scroll;
             font-family: 'Berkshire Swash', cursive;
             overscroll-behavior: none;
+            background-image: url('https://static.parade.com/wp-content/uploads/2019/02/tarot-cards-FTR.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         body {
             display: flex;
             max-width: 100%;
             overflow-x: hidden;
             flex-direction: column;
-            background-image: url('https://static.parade.com/wp-content/uploads/2019/02/tarot-cards-FTR.jpg');
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
             margin:0;
+            background-color:rgba(0,0,0,0.87);
         }
         .screen {
             padding-top:5vh;
             display: inline-flex;
             height:101vh;
-            background-color:rgba(0,0,0,0.87);
         }
         .content {
             margin:8vh auto;
@@ -168,10 +168,17 @@
             padding: 1vh;
             text-align: center;
             font-size:4.7vh;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 10px;
             /* font-family: 'Roboto', sans-serif; */
         }
         #number-of-groups {
             padding-top: 10%;
+        }
+        #future-groups {
+            color: white;
         }
         button {
             outline: none;
@@ -196,7 +203,7 @@
             height:25vh;
             width:15vw;
             margin:10px;
-            font-size:8pt;
+            font-size:20pt;
             background-image:linear-gradient(purple,lightblue);
         }
         .close {
@@ -280,10 +287,9 @@
             </div>
         </div>
     </div>
-    <div class="screen">
-            <div id="future-groups" class="content">
-        </div>
-        </div>
+    <div id="future-groups" class="content">
+    </div>
+    <!-- <div class="screen"></div> -->
     </body>
     <script>
 
@@ -384,6 +390,10 @@
 
                 var list = document.getElementById('future-groups')
                 list.appendChild(newRow);
+                var header = document.createElement('h1');
+                var str = groupCounter + 1;
+                header.innerHTML = "Group " + str;
+                newRow.appendChild(header);
                 for (var i = groupNumberAndIndex[1]; i < groupNumberAndIndex[1] + peopleInGroup; ++i)
                 {
                     console.log(items[i] + " ")
