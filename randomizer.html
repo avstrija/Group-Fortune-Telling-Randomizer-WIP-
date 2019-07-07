@@ -238,20 +238,20 @@
         <div class="screen">
                 <button id="add" class="student-button" style="height:5.7vh;" onclick="add_student()">Add</button>
         <div id="list-of-students">
-                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Jeff </div>
-                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Hayes</div>
-                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Kyle </div>
-                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Dasha</div>
-                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Clarke</div>
-                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Stan </div>
-                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Scott</div>
-                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Lilith</div>
-                <div class="student"><button onclick="delete_student(event)" class="close">x</button>TJ    </div>
-                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Taylor</div>
-                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Myles </div>
-                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Kat   </div>
-                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Hank  </div>
-                <div class="student"><button onclick="delete_student(event)" class="close">x</button>Chris  </div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button><p>Jeff</p></div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button><p>Hayes</p></div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button><p>Kyle</p></div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button><p>Dasha</p></div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button><p>Clarke</p></div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button><p>Stan</p> </div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button><p>Scott</p></div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button><p>Lilith</p></div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button><p>TJ</p>    </div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button><p>Taylor</p></div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button><p>Myles</p> </div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button><p>Kat</p>   </div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button><p>Hank</p>  </div>
+                <div class="student"><button onclick="delete_student(event)" class="close">x</button><p>Chris</p>  </div>
         </div>
         <div id="number-of-groups">
             <div class="row">
@@ -373,11 +373,22 @@
 
         function arrange_cards(divisions){
             var count = document.getElementById('list-of-students').childElementCount;
-            var students = document.getElementsByClassName("student");
+            var students = document.querySelectorAll(".student > p"),
+                names = [];
+            for (var i = 0; i < students.length; i++) {
+                names.push(students[i].textContent);
+            }
+            console.log(names)
             
-            console.log(students)
-            console.log(count);
-            console.log(divisions);
+            for (var x = 0; x < names.Length - 1; x++) {
+                var j = (Math.Random * names.Length)+x;
+                console.log(j)
+                var temp = names[x];
+                console.log(temp)
+                names[x] = names[j];
+                names[j] = temp;
+            }
+            console.log(names);
         }
     </script>
 </html>
