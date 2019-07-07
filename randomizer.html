@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Righteous|Montserrat|Indie+Flower|Spectral+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+SC|Berkshire+Swash|Righteous|Montserrat|Indie+Flower|Spectral+SC&display=swap" rel="stylesheet">
     <html lang="en"></html>
     <title>Tarot Randomizer</title>
 </head>
     <style>
         html {
             overflow:scroll;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Berkshire Swash', cursive;
             overscroll-behavior: none;
         }
         body {
@@ -130,10 +130,10 @@
             margin:-55%;
             color: rgb(229, 243, 191);
             /* opacity:0.75; */
-            text-shadow: 4px 2px rgba(255,213,0,0.75);
+            /* text-shadow: 4px 2px rgba(255,213,0,0.75); */
             position:relative;
-            font-size:4.7vh;
-            font-family: 'Spectral SC', serif;
+            font-size:6vh;
+            font-family: 'Cormorant SC', serif;
         }
         #list-of-students {
             display:flex;
@@ -168,7 +168,7 @@
             padding: 1vh;
             text-align: center;
             font-size:4.7vh;
-            font-family: 'Roboto', sans-serif;
+            /* font-family: 'Roboto', sans-serif; */
         }
         #number-of-groups {
             padding-top: 10%;
@@ -180,7 +180,7 @@
             border-radius:50%;
             margin-right: 1vh;
             font-size:4vh;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Cormorant SC', sans-serif;
             background: rgba(0,0,0,0);
             color: white;
         }
@@ -239,13 +239,13 @@
                     <img id="sigil" src="https://vignette.wikia.nocookie.net/parapedia/images/2/25/Occult_diagram.gif/revision/latest?cb=20120209165756'"></img>
                 </div>
                 <h1 class = "title">know your future groups</h1>
-                <button class = "enter" onclick="scrollWin()">Click to Enter</button>
+                <button class = "enter" onclick="scrollWin()">click to enter</button>
             </div>
             
             <img id="right-img" class="circles" src="https://i.ya-webdesign.com/images/occult-drawing-2.gif"></img>
         </div>
         <div class="screen">
-                <button id="add" class="student-button" style="height:5.7vh;" onclick="add_student()">Add</button>
+                <button id="add" class="student-button" style="height:5.7vh;" onclick="add_student()">add</button>
         <div id="list-of-students">
                 <div class="student"><button onclick="delete_student(event)" class="close">x</button><p>Jeff</p></div>
                 <div class="student"><button onclick="delete_student(event)" class="close">x</button><p>Hayes</p></div>
@@ -281,58 +281,7 @@
         </div>
     </div>
     <div class="screen">
-            <div class="content">
-                <section class="row">       
-                    <div class="card">
-                        <p>content for card one</p>
-                    </div><!-- /card-one -->
-         
-                    <div class="card">
-                        <p>content for card two</p>
-                    </div><!-- /card-two -->
-         
-                    <div class="card">
-                          <p>content for card three</p>
-                    </div><!-- /card-three -->
-         
-                    <div class="card">
-                           <p>content for card four</p>
-                    </div><!-- /card-four -->
-            </section>
-            <section class="row">       
-                    <div class="card">
-                        <p>content for card one</p>
-                    </div><!-- /card-one -->
-         
-                    <div class="card">
-                        <p>content for card two</p>
-                    </div><!-- /card-two -->
-         
-                    <div class="card">
-                          <p>content for card three</p>
-                    </div><!-- /card-three -->
-         
-                    <div class="card">
-                           <p>content for card four</p>
-                    </div><!-- /card-four -->
-            </section>
-            <section class="row">       
-                    <div class="card">
-                        <p>content for card one</p>
-                    </div><!-- /card-one -->
-         
-                    <div class="card">
-                        <p>content for card two</p>
-                    </div><!-- /card-two -->
-         
-                    <div class="card">
-                          <p>content for card three</p>
-                    </div><!-- /card-three -->
-         
-                    <div class="card">
-                           <p>content for card four</p>
-                    </div><!-- /card-four -->
-            </section>
+            <div id="future-groups" class="content">
         </div>
         </div>
     </body>
@@ -360,7 +309,7 @@
         }
         var counter = 0;
         function add_student(){
-            var person = prompt("please enter a name", "name");
+            var person = prompt("Please enter a name", "name");
             //creates the new student div
             var newStudent = document.createElement('div');
             newStudent.textContent = person;
@@ -424,16 +373,31 @@
             }
         }
 
+        var groupCounter = 0;
         function printGroups(items, groupNumberAndIndex, numberOfGroups, peopleInGroup) {
             while (numberOfGroups > 0)
             {
                 console.log("Group", groupNumberAndIndex[0])
+                var newRow = document.createElement('section');
+                newRow.className = 'row';
+                newRow.id = groupCounter;
+
+                var list = document.getElementById('future-groups')
+                list.appendChild(newRow);
                 for (var i = groupNumberAndIndex[1]; i < groupNumberAndIndex[1] + peopleInGroup; ++i)
                 {
                     console.log(items[i] + " ")
+                    var tarotCard = document.createElement('div');
+                    tarotCard.className = "card";
+                    tarotCard.innerHTML = items[i];
+                    var row = document.getElementById(groupCounter);
+                    row.appendChild(tarotCard);
+                    // newButton.onclick = function(){delete_student(event)};
+                    // var student = document.getElementById(counter);
                 }
                 groupNumberAndIndex[1] += peopleInGroup;
                 ++groupNumberAndIndex[0];
+                ++groupCounter;
                 --numberOfGroups;
             }
             return groupNumberAndIndex;
