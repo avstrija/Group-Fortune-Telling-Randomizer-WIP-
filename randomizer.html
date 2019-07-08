@@ -10,6 +10,7 @@
     <style>
         html {
             overflow:scroll;
+            /* scroll-behavior: smooth; */
             font-family: 'Berkshire Swash', cursive;
             overscroll-behavior: none;
             background-image: url('https://static.parade.com/wp-content/uploads/2019/02/tarot-cards-FTR.jpg');
@@ -281,7 +282,7 @@
                 <p style="color:white;border:1px;">How many groups?</p>
             </div>
             <div class="row">
-                <button onclick="arrange_cards(2)">2</button>
+                <button href="#future-groups" onclick="arrange_cards(2)">2</button>
                 <button onclick="arrange_cards(3)">3</button>
                 <button onclick="arrange_cards(4)">4</button>
             </div>
@@ -306,7 +307,7 @@
         var interval = setInterval(function() {
         window.scrollBy(0, 20);
         c++
-        if (c > 45){
+        if (c > 40){
             clearInterval(interval);
             c = 0;
         }
@@ -320,17 +321,20 @@
             console.log(eventvar.target.parentNode);
             eventvar.target.parentNode.parentNode.removeChild(eventvar.target.parentNode);
         }
-        var counter = 0;
+        var counter = 1000;
         function add_student(){
-            var person = prompt("Please enter a name", "name");
+            var person = prompt("Please enter a name", "Name");
             //creates the new student div
             var newStudent = document.createElement('div');
-            newStudent.textContent = person;
             newStudent.className = 'student';
             newStudent.id = counter;
 
-            var list = document.getElementById('list-of-students')
+            var list = document.getElementById('list-of-students');
             list.appendChild(newStudent);
+            
+            var name = document.createElement('p');
+            name.textContent = person;
+            
 
             //I was quite sure this would add a button!!
             var newButton = document.createElement('button');
@@ -339,6 +343,7 @@
             newButton.onclick = function(){delete_student(event)};
             var student = document.getElementById(counter);
             student.appendChild(newButton);
+            student.appendChild(name);
             counter = counter + 1;
         }
         
@@ -383,6 +388,7 @@
 
                 printGroups(names, groupNumberAndIndex, longGroups, peopleInLongGroup);
                 printGroups(names, groupNumberAndIndex, shortGroups, peopleInShortGroup);
+                // window.scrollTo(0,document.body.scrollHeight);
             }
             else
             {
@@ -391,8 +397,10 @@
                     "\nChoose a different number.";
                 var list = document.getElementById('number-of-groups');
                 var message = document.createElement('h1');
+                message.id = "message";
                 message.innerHTML = str;
-                list.appendChild(message);   
+                list.appendChild(message);  
+                
             }
         }
 
@@ -430,6 +438,7 @@
                 ++groupNumberAndIndex[0];
                 ++groupCounter;
                 --numberOfGroups;
+                // scrollWin();
             }
             return groupNumberAndIndex;
         }
