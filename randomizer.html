@@ -133,7 +133,7 @@
             text-shadow: 4px 2px rgba(255,213,0,0.75);
             position:relative;
             font-size:6vh;
-            font-family: 'Cormorant SC', serif;
+            /* font-family: 'Cormorant SC', serif; */
         }
         #list-of-students {
             display:flex;
@@ -176,10 +176,14 @@
         }
         #number-of-groups {
             padding-top: 10%;
-            color: white;
+            color:white;
         }
         #future-groups {
-            color: white;
+            color: rgb(229, 243, 191);;
+            text-shadow: 3px 3px 4px #000000;
+        }
+        h1 {
+            font-family: 'Cormorant SC', sans-serif;
         }
         button {
             outline: none;
@@ -201,11 +205,13 @@
         }
         .card {
             float:left;
-            height:25vh;
+            height:45vh;
             width:15vw;
-            margin:10px;
+            margin:15px;
             font-size:20pt;
-            background-image:linear-gradient(purple,lightblue);
+            background-image:url('https://t4.ftcdn.net/jpg/01/90/40/37/240_F_190403786_ejqEearcjeTAb0gBajklH4R3UN6eDG6i.jpg');
+            background-attachment: fixed;
+            /* background-size: 20vw 30vh; */
         }
         .close {
             height: 1.5em;
@@ -247,7 +253,7 @@
                     <img id="sigil" src="https://vignette.wikia.nocookie.net/parapedia/images/2/25/Occult_diagram.gif/revision/latest?cb=20120209165756'"></img>
                 </div>
                 <h1 class = "title">know your future groups</h1>
-                <button class = "enter" onclick="scrollWin()">click to enter</button>
+                <button class = "enter" onclick="scrollWin()">&#x1f441;</button>
             </div>
             
             <img id="right-img" class="circles" src="https://i.ya-webdesign.com/images/occult-drawing-2.gif"></img>
@@ -335,9 +341,11 @@
             student.appendChild(newButton);
             counter = counter + 1;
         }
-
+        
+        var groupCounter = 0;
         function arrange_cards(divisions){
             scrollWin();
+            groupCounter = 0;
             // var count = document.getElementById('list-of-students').childElementCount;
             var students = document.querySelectorAll(".student > p"),
                 names = [];
@@ -368,6 +376,10 @@
                 var longGroups = names.length % divisions;
                 var shortGroups = divisions - longGroups;
                 var groupNumberAndIndex = [1,0];
+                var list = document.getElementById('future-groups');
+                while (list.firstChild) {
+                    list.removeChild(list.firstChild);
+                }
 
                 printGroups(names, groupNumberAndIndex, longGroups, peopleInLongGroup);
                 printGroups(names, groupNumberAndIndex, shortGroups, peopleInShortGroup);
@@ -384,7 +396,6 @@
             }
         }
 
-        var groupCounter = 0;
         function printGroups(items, groupNumberAndIndex, numberOfGroups, peopleInGroup) {
             while (numberOfGroups > 0)
             {
@@ -393,11 +404,11 @@
                 newRow.className = 'row';
                 newRow.id = groupCounter;
 
-                var list = document.getElementById('future-groups')
+                var list = document.getElementById('future-groups');
                 list.appendChild(newRow);
                 var header = document.createElement('h1');
                 var str = groupCounter + 1;
-                header.innerHTML = "Group " + str;
+                header.innerHTML = "group " + str;
                 newRow.appendChild(header);
                 for (var i = groupNumberAndIndex[1]; i < groupNumberAndIndex[1] + peopleInGroup; ++i)
                 {
@@ -407,6 +418,11 @@
                     tarotCard.innerHTML = items[i];
                     var row = document.getElementById(groupCounter);
                     row.appendChild(tarotCard);
+                    var img = document.createElement('img');
+                    img.src = 'https://images-na.ssl-images-amazon.com/images/I/81GFQKXw7WL.jpg';
+                    img.setAttribute('width', '100%')
+                    img.setAttribute('height', '92%')
+                    tarotCard.appendChild(img);
                     // newButton.onclick = function(){delete_student(event)};
                     // var student = document.getElementById(counter);
                 }
